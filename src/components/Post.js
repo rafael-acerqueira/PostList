@@ -1,11 +1,13 @@
-import styled from 'styled-components'
+import React from 'react'
+import PostWrapper from './PostWrapper'
 
-const Post = styled.div`
-	background-color: #FFF
-	box-shadow: 9px 10px 5px -9px rgba(0,0,0,0.75);
-	margin-bottom: 30px;
-	padding: 15px;
-	width: 500px;
-`
+const Post = ({ post }) => (
+	<PostWrapper>
+		<img src={post.avatar} alt='avatar' />
+		<span>{post.name}</span>
+		<span>há {post.time} min</span>
+		<div>{post.description}</div>
+	</PostWrapper>
+)
 
 export default Post
