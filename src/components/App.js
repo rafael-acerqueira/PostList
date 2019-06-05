@@ -26,6 +26,13 @@ const App = () => {
 			avatar: 'http://lorempixel.com/50/50/people/',
 			time: 50,
 			description: 'Proin at nibh mi. Donec vestibulum sem nisi, vehicula auctor nisl consequat sed. In laoreet dignissim sapien nec fermentum. Morbi laoreet porttitor egestas. Maecenas sed lacus congue, pretium libero a, finibus lorem. Etiam gravida neque tincidunt, rutrum elit sed, feugiat odio. Cras vel odio posuere, rutrum magna vel, rutrum nisi. Donec sollicitudin euismod sem at ullamcorper'
+		},
+		{
+			id: uuidv4(),
+			name: 'Tim',
+			avatar: 'http://lorempixel.com/50/50/city/',
+			time: 58,
+			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet arcu in arcu posuere iaculis. Etiam non mollis urna, quis rutrum quam. Nulla viverra malesuada orci, eget ultrices orci laoreet vel. Curabitur luctus odio nec erat lacinia, vel suscipit ligula sollicitudin. Duis posuere eleifend justo, non convallis quam tincidunt a. Aenean pretium tortor quis dapibus lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse faucibus sem in nunc maximus, id ultrices dolor aliquet. Suspendisse odio est, aliquet eget dui vel, congue molestie nisi. Integer eget semper ligula, in vulputate dui. In pretium nisl massa, eu mollis eros sodales at. Phasellus vitae elit posuere, molestie justo vel, imperdiet lacus.'
 		}
 	])
 
