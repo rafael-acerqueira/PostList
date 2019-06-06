@@ -7,7 +7,7 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	padding-top: 30px;
 	justify-content: flex-start;
-	min-height: 100vh;
+	min-height: 91vh;
 `
 
 export default Wrapper

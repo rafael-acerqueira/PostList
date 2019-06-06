@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './Header'
 import Wrapper from './Wrapper'
 import Post from './Post'
 import uuidv4 from 'uuid/v4'
 
 const App = () => {
-	const [posts, setPosts] = useState([
+	const NUMBEROFITEMSPERPAGE = 3
+	const ALLPOST = [
 		{
 			id: uuidv4(),
 			name: 'Josh',
@@ -34,7 +35,30 @@ const App = () => {
 			time: 58,
 			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet arcu in arcu posuere iaculis. Etiam non mollis urna, quis rutrum quam. Nulla viverra malesuada orci, eget ultrices orci laoreet vel. Curabitur luctus odio nec erat lacinia, vel suscipit ligula sollicitudin. Duis posuere eleifend justo, non convallis quam tincidunt a. Aenean pretium tortor quis dapibus lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse faucibus sem in nunc maximus, id ultrices dolor aliquet. Suspendisse odio est, aliquet eget dui vel, congue molestie nisi. Integer eget semper ligula, in vulputate dui. In pretium nisl massa, eu mollis eros sodales at. Phasellus vitae elit posuere, molestie justo vel, imperdiet lacus.'
 		}
-	])
+	]
+
+	const [posts, setPosts] = useState(ALLPOST.slice(0, NUMBEROFITEMSPERPAGE))
+	const [isFetching, setIsFetching] = useState(false)
+
+	const handleScroll = () => {
+		if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return
+		setIsFetching(true)
+	}
+
+	const fetchMoreListItems = () => {
+		setPosts(prevState => ([...prevState, ...ALLPOST.slice(prevState.length, prevState.length + NUMBEROFITEMSPERPAGE)]))
+		setIsFetching(false)
+	}
+
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll)
+		return () => window.removeEventListener('scroll', handleScroll)
+	}, [])
+
+	useEffect(() => {
+		if (!isFetching) return
+		fetchMoreListItems()
+	}, [isFetching])
 
 	return (
 		<>
